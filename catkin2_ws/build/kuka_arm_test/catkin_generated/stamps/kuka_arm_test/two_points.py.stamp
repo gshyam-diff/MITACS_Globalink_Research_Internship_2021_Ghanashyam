@@ -1,0 +1,184 @@
+from __future__ import print_function
+from six.moves import input
+
+import sys
+import copy
+import rospy
+import moveit_commander
+import moveit_msgs.msg
+import geometry_msgs.msg
+
+try:
+    from math import pi, tau, dist, fabs, cos
+except:  # For Python 2 compatibility
+    from math import pi, fabs, cos, sqrt
+
+    tau = 2.0 * pi
+
+    def dist(p, q):
+        return sqrt(sum((p_i - q_i) ** 2.0 for p_i, q_i in zip(p, q)))
+
+
+from std_msgs.msg import String
+from moveit_commander.conversions import pose_to_list
+
+def go_to_pose_goal(self):
+        # Copy class variables to local variables to make the web tutorials more clear.
+        # In practice, you should use the class variables directly unless you have a good
+        # reason not to.
+    move_group = self.move_group
+
+        ## BEGIN_SUB_TUTORIAL plan_to_pose
+        ##
+        ## Planning to a Pose Goal
+        ## ^^^^^^^^^^^^^^^^^^^^^^^
+        ## We can plan a motion for this group to a desired pose for the
+        ## end-effector:
+    pose_goal = geometry_msgs.msg.Pose()
+    pose_goal.orientation.w = 1.0
+    pose_goal.position.x = 0.4
+    pose_goal.position.y = 0.1
+    pose_goal.position.z = 0.4
+
+    move_group.set_pose_target(pose_goal)
+
+        ## Now, we call the planner to compute the plan and execute it.
+    plan = move_group.go(wait=True)
+        # Calling `stop()` ensures that there is no residual movement
+    move_group.stop()
+        # It is always good to clear your targets after planning with poses.
+        # Note: there is no equivalent function for clear_joint_value_targets()
+    move_group.clear_pose_targets()
+
+        ## END_SUB_TUTORIAL
+
+        # For testing:
+        # Note that since this section of code will not be included in the tutorials
+        # we use the class variable rather than the copied state variable
+    current_pose = self.move_group.get_current_pose().pose
+    return all_close(pose_goal, current_pose, 0.01)
+
+def plan_cartesian_path(self, scale=1):
+        # Copy class variables to local variables to make the web tutorials more clear.
+        # In practice, you should use the class variables directly unless you have a good
+        # reason not to.
+    move_group = self.move_group
+
+        ## BEGIN_SUB_TUTORIAL plan_cartesian_path
+        ##
+        ## Cartesian Paths
+        ## ^^^^^^^^^^^^^^^
+        ## You can plan a Cartesian path directly by specifying a list of waypoints
+        ## for the end-effector to go through. If executing  interactively in a
+        ## Python shell, set scale = 1.0.
+        ##
+    waypoints = []
+
+    wpose = move_group.get_current_pose().pose
+    wpose.position.z -= scale * 0.1  # First move up (z)
+    wpose.position.y += scale * 0.2  # and sideways (y)
+    waypoints.append(copy.deepcopy(wpose))
+
+    wpose.position.x += scale * 0.1  # Second move forward/backwards in (x)
+    waypoints.append(copy.deepcopy(wpose))
+
+    wpose.position.y -= scale * 0.1  # Third move sideways (y)
+    waypoints.append(copy.deepcopy(wpose))
+
+        # We want the Cartesian path to be interpolated at a resolution of 1 cm
+        # which is why we will specify 0.01 as the eef_step in Cartesian
+        # translation.  We will disable the jump threshold by setting it to 0.0,
+        # ignoring the check for infeasible jumps in joint space, which is sufficient
+        # for this tutorial.
+    (plan, fraction) = move_group.compute_cartesian_path(
+        waypoints, 0.01, 0.0  # waypoints to follow  # eef_step
+    )  # jump_threshold
+
+        # Note: We are just planning, not asking move_group to actually move the robot yet:
+    return plan, fraction
+
+        ## END_SUB_TUTORIAL
+
+    def display_trajectory(self, plan):
+        # Copy class variables to local variables to make the web tutorials more clear.
+        # In practice, you should use the class variables directly unless you have a good
+        # reason not to.
+        robot = self.robot
+        display_trajectory_publisher = self.display_trajectory_publisher
+
+        ## BEGIN_SUB_TUTORIAL display_trajectory
+        ##
+        ## Displaying a Trajectory
+        ## ^^^^^^^^^^^^^^^^^^^^^^^
+        ## You can ask RViz to visualize a plan (aka trajectory) for you. But the
+        ## group.plan() method does this automatically so this is not that useful
+        ## here (it just displays the same trajectory again):
+        ##
+        ## A `DisplayTrajectory`_ msg has two primary fields, trajectory_start and trajectory.
+        ## We populate the trajectory_start with our current robot state to copy over
+        ## any AttachedCollisionObjects and add our plan to the trajectory.
+        display_trajectory = moveit_msgs.msg.DisplayTrajectory()
+        display_trajectory.trajectory_start = robot.get_current_state()
+        display_trajectory.trajectory.append(plan)
+        # Publish
+        display_trajectory_publisher.publish(display_trajectory)
+
+        ## END_SUB_TUTORIAL
+
+    def execute_plan(self, plan):
+        # Copy class variables to local variables to make the web tutorials more clear.
+        # In practice, you should use the class variables directly unless you have a good
+        # reason not to.
+        move_group = self.move_group
+
+        ## BEGIN_SUB_TUTORIAL execute_plan
+        ##
+        ## Executing a Plan
+        ## ^^^^^^^^^^^^^^^^
+        ## Use execute if you would like the robot to follow
+        ## the plan that has already been computed:
+        move_group.execute(plan, wait=True)
+
+        ## **Note:** The robot's current joint state must be within some tolerance of the
+        ## first waypoint in the `RobotTrajectory`_ or ``execute()`` will fail
+        ## END_SUB_TUTORIAL
+
+
+def main():
+    try:
+        print("")
+        print("----------------------------------------------------------")
+        print("Welcome to the MoveIt MoveGroup Python Interface Tutorial")
+        print("----------------------------------------------------------")
+        print("Press Ctrl-D to exit at any time")
+        print("")
+        input(
+            "============ Press `Enter` to begin the tutorial by setting up the moveit_commander ..."
+        )
+        tutorial = MoveGroupPythonInterfaceTutorial()
+
+        input("============ Press `Enter` to execute a movement using a pose goal ...")
+        tutorial.go_to_pose_goal()
+
+        input("============ Press `Enter` to plan and display a Cartesian path ...")
+        cartesian_plan, fraction = tutorial.plan_cartesian_path()
+
+        input(
+            "============ Press `Enter` to display a saved trajectory (this will replay the Cartesian path)  ..."
+        )
+        tutorial.display_trajectory(cartesian_plan)
+
+        input("============ Press `Enter` to execute a saved path ...")
+        tutorial.execute_plan(cartesian_plan)
+
+
+        print("============ Python tutorial demo complete!")
+    except rospy.ROSInterruptException:
+        return
+    except KeyboardInterrupt:
+        return
+
+
+if __name__ == "__main__":
+    main()
+        

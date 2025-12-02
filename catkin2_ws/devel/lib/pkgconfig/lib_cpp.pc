@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/devel
+
+Name: lib_cpp
+Description: Description of lib_cpp
+Version: 0.0.0
+Cflags: -I/home/ghans/catkin2_ws/src/lib_cpp/include
+Libs: -L${prefix}/lib -llib_cpp
+Requires: 

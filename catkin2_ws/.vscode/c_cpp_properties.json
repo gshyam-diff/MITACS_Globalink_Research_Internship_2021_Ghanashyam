@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/ghans/catkin2_ws/devel/include/**",
+        "/home/ghans/alib_ws/devel/include/**",
+        "/home/ghans/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/ghans/catkin2_ws/src/kuka_arm_test/include/**",
+        "/home/ghans/cpplib_ws/src/lib_cpp/include/**",
+        "/home/ghans/catkin2_ws/src/moveit_cartesian_plan_plugin/include/**",
+        "/home/ghans/catkin2_ws/src/moveit_ops/include/**",
+        "/opt/ros/noetic/share/moveit_visual_tools/include/**",
+        "/home/ghans/alib_ws/src/my_robot_tutorials/include/**",
+        "/home/ghans/catkin2_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/home/ghans/catkin2_ws/src/realsense_gazebo_plugin/include/**",
+        "/home/ghans/cpplib_ws/src/tester_package/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

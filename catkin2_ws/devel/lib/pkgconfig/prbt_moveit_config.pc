@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/devel
+
+Name: prbt_moveit_config
+Description: Description of prbt_moveit_config
+Version: 0.6.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

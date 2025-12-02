@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/devel
+
+Name: prbt_hardware_support
+Description: Description of prbt_hardware_support
+Version: 0.6.0
+Cflags: -I/home/ghans/catkin2_ws/devel/include -I/home/ghans/catkin2_ws/src/prbt_hardware_support/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime pilz_msgs roscpp std_msgs std_srvs sensor_msgs

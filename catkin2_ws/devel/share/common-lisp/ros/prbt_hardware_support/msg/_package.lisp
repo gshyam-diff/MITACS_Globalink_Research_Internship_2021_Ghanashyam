@@ -1,0 +1,11 @@
+(cl:defpackage prbt_hardware_support-msg
+  (:use )
+  (:export
+   "<BRAKETESTERRORCODES>"
+   "BRAKETESTERRORCODES"
+   "<MODBUSMSGINSTAMPED>"
+   "MODBUSMSGINSTAMPED"
+   "<MODBUSREGISTERBLOCK>"
+   "MODBUSREGISTERBLOCK"
+  ))
+

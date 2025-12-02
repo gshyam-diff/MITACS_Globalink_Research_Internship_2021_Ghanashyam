@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/install
+
+Name: tester_package
+Description: Description of tester_package
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs message_runtime sensor_msgs rospy pcl_conversions pcl_ros lib_cpp ros_numpy

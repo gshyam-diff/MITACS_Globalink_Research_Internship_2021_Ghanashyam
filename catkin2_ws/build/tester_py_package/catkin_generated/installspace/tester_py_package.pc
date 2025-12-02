@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/install
+
+Name: tester_py_package
+Description: Description of tester_py_package
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

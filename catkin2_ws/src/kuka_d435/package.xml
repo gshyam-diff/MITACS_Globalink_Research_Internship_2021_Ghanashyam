@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>kuka_d435</name>
+  <version>0.1.0</version>
+  <description>
+    <p>
+      Kuka KR6
+    </p>
+  </description>
+  <author></author>
+  <maintainer email="seyedali.maghami@gmail.com"></maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/kuka_kr6_support</url>
+  <url type="bugtracker">https://github.com/ros-industrial/kuka_experimental/issues</url>
+  <url type="repository">https://github.com/ros-industrial/kuka_experimental</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!--<test_depend>roslaunch</test_depend>-->
+
+  <!--<exec_depend>industrial_robot_client</exec_depend>-->
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>

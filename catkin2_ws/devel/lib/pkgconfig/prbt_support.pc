@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/devel
+
+Name: prbt_support
+Description: Description of prbt_support
+Version: 0.6.0
+Cflags: -I/home/ghans/catkin2_ws/src/pilz_robots-noetic-devel/prbt_support/include
+Libs: -L${prefix}/lib 
+Requires: roscpp

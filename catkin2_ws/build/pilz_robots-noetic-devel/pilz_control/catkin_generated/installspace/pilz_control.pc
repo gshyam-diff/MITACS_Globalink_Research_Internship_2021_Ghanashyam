@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/install
+
+Name: pilz_control
+Description: Description of pilz_control
+Version: 0.6.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lpilz_control
+Requires: roscpp std_srvs pilz_msgs joint_trajectory_controller

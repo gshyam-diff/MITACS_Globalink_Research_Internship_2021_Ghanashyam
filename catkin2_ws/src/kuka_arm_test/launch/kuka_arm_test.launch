@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!--<node name="kuka_arm_arm" pkg="kuka_arm_test" type="kuka_arm_test" respawn="false"
+    output="screen"></node>-->
+
+    <!--<node name="test_custom" pkg="kuka_arm_test" type="test_custom" respawn="false"
+    output="screen"></node>-->
+
+    <node name="move_group_python_interface_tutorial" pkg="kuka_arm_test" type="move_group_python_interface_tutorial.py" respawn="false" output="screen">
+    </node>
+
+</launch>

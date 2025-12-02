@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/devel
+
+Name: pilz_control
+Description: Description of pilz_control
+Version: 0.6.0
+Cflags: -I/home/ghans/catkin2_ws/src/pilz_robots-noetic-devel/pilz_control/include
+Libs: -L${prefix}/lib -lpilz_control
+Requires: roscpp std_srvs pilz_msgs joint_trajectory_controller

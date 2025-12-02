@@ -1,0 +1,8 @@
+# CMake generated Testfile for 
+# Source directory: /home/ghans/catkin2_ws/src/pilz_robots-noetic-devel/prbt_gazebo
+# Build directory: /home/ghans/catkin2_ws/build/pilz_robots-noetic-devel/prbt_gazebo
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(_ctest_prbt_gazebo_rostest_test_integrationtest_gazebo_bringup.test "/home/ghans/catkin2_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python3" "/opt/ros/noetic/share/catkin/cmake/test/run_tests.py" "/home/ghans/catkin2_ws/build/test_results/prbt_gazebo/rostest-test_integrationtest_gazebo_bringup.xml" "--return-code" "/usr/bin/python3 /opt/ros/noetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/ghans/catkin2_ws/src/pilz_robots-noetic-devel/prbt_gazebo --package=prbt_gazebo --results-filename test_integrationtest_gazebo_bringup.xml --results-base-dir \"/home/ghans/catkin2_ws/build/test_results\" /home/ghans/catkin2_ws/src/pilz_robots-noetic-devel/prbt_gazebo/test/integrationtest_gazebo_bringup.test ")
+set_tests_properties(_ctest_prbt_gazebo_rostest_test_integrationtest_gazebo_bringup.test PROPERTIES  _BACKTRACE_TRIPLES "/opt/ros/noetic/share/catkin/cmake/test/tests.cmake;160;add_test;/opt/ros/noetic/share/rostest/cmake/rostest-extras.cmake;52;catkin_run_tests_target;/opt/ros/noetic/share/rostest/cmake/rostest-extras.cmake;80;add_rostest;/opt/ros/noetic/share/rostest/cmake/rostest-extras.cmake;100;_add_rostest_google_test;/home/ghans/catkin2_ws/src/pilz_robots-noetic-devel/prbt_gazebo/CMakeLists.txt;45;add_rostest_gtest;/home/ghans/catkin2_ws/src/pilz_robots-noetic-devel/prbt_gazebo/CMakeLists.txt;0;")

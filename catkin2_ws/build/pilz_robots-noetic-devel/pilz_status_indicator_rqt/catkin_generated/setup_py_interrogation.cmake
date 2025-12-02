@@ -1,0 +1,7 @@
+set(pilz_status_indicator_rqt_SETUP_PY_SETUP_MODULE "distutils.core")
+set(pilz_status_indicator_rqt_SETUP_PY_VERSION "0.6.0")
+set(pilz_status_indicator_rqt_SETUP_PY_SCRIPTS "")
+set(pilz_status_indicator_rqt_SETUP_PY_PACKAGES "pilz_status_indicator_rqt")
+set(pilz_status_indicator_rqt_SETUP_PY_PACKAGE_DIRS "src/pilz_status_indicator_rqt")
+set(pilz_status_indicator_rqt_SETUP_PY_MODULES "")
+set(pilz_status_indicator_rqt_SETUP_PY_MODULE_DIRS "")

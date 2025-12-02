@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/ghans/catkin2_ws/devel/lib/python3/dist-packages",
+        "/home/ghans/alib_ws/devel/lib/python3/dist-packages",
+        "/home/ghans/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "ros.distro": "noetic",
+    "C_Cpp.errorSquiggles": "Disabled"
+}

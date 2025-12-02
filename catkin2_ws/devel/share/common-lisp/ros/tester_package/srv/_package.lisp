@@ -1,0 +1,10 @@
+(cl:defpackage tester_package-srv
+  (:use )
+  (:export
+   "GENERATEANGLES"
+   "<GENERATEANGLES-REQUEST>"
+   "GENERATEANGLES-REQUEST"
+   "<GENERATEANGLES-RESPONSE>"
+   "GENERATEANGLES-RESPONSE"
+  ))
+

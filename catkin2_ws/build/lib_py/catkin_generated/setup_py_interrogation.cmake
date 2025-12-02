@@ -1,0 +1,7 @@
+set(lib_py_SETUP_PY_SETUP_MODULE "distutils.core")
+set(lib_py_SETUP_PY_VERSION "0.0.0")
+set(lib_py_SETUP_PY_SCRIPTS "")
+set(lib_py_SETUP_PY_PACKAGES "lib_py")
+set(lib_py_SETUP_PY_PACKAGE_DIRS "src/lib_py")
+set(lib_py_SETUP_PY_MODULES "")
+set(lib_py_SETUP_PY_MODULE_DIRS "")

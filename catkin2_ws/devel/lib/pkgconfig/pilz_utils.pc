@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/devel
+
+Name: pilz_utils
+Description: Description of pilz_utils
+Version: 0.7.2
+Cflags: -I/home/ghans/catkin2_ws/src/pilz_utils/include
+Libs: -L${prefix}/lib 
+Requires: 

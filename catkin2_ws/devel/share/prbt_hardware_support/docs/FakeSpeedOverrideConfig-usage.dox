@@ -1,0 +1,7 @@
+\subsubsection usage Usage
+\verbatim
+<node name="prbt_hardware_support" pkg="prbt_hardware_support" type="prbt_hardware_support">
+  <param name="speed_override" type="double" value="1.0" />
+</node>
+\endverbatim
+

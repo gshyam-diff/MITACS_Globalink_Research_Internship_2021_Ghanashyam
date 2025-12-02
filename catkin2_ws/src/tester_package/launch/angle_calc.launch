@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node name="pcl_read" pkg="tester_package" type="Read_and_publish.cpp" respawn="false" output="screen">
+    </node>
+
+    <node name="pcd_transform" pkg="tester_package" type="PCD_Transform.cpp" respawn="false" output="screen">
+    </node>
+
+    <node name="CalcAngle" pkg="tester_package" type="Calculate_Angle.py" respawn="false" output="screen">
+    </node>
+
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/ghans/catkin2_ws/install
+
+Name: prbt_gazebo
+Description: Description of prbt_gazebo
+Version: 0.6.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
